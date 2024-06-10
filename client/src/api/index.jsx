@@ -7,3 +7,7 @@ const api = axios.create({
 export const createAdmin = (formData) => {
   return api.post("/createAdmin", formData);
 };
+
+export const isAdminCreated = () => {
+  return api.get("/isAdminCreated");
+};

@@ -1,8 +1,13 @@
 import decodeFn from "./decodeFn";
-function isAuth(token) {
+async function isAuth(token, setIsAdmin) {
   if (!token) return false;
   const currentTime = Date.now() / 1000;
   const decodedToken = decodeFn(token);
-  return decodedToken.exp >= currentTime;
+  return new Promise((resolve) => {
+    if (decodedToken.isAdmin) {
+      setIsAdmin(true);
+    }
+    resolve(decodedToken.exp >= currentTime);
+  });
 }
 export default isAuth;

@@ -1,4 +1,4 @@
 function Dashboard() {
-  return <>THIS IS DASHBOARD</>;
+  return <>This is Admin dashboard</>;
 }
 export default Dashboard;
