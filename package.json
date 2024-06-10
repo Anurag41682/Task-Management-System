@@ -1,0 +1,11 @@
+{
+  "name": "taskmanagementsystem",
+  "version": "1.0.0",
+  "description": "A system to manage task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anurag",
+  "license": "ISC"
+}

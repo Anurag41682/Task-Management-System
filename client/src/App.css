@@ -1,0 +1,60 @@
+.authPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 10vh;
+}
+.authButton {
+  text-decoration: none;
+  border: 2px darkblue solid;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 4px;
+}
+.authButton:hover {
+  background-color: #5f82f5;
+}
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10vh;
+}
+.loginForm {
+  margin: 5vh;
+}
+.loginInput {
+  display: flex;
+  justify-content: space-between;
+}
+.loginButton {
+  margin: 5px;
+  padding: 10px;
+  border: 2px darkblue solid;
+  text-align: center;
+}
+.loginButton:hover {
+  background-color: #5f82f5;
+}
+
+.adminPage {
+  margin: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.adminInput {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+.createAdminButton {
+  margin: 5px;
+  padding: 10px;
+  border: 2px darkblue solid;
+  text-align: center;
+}
+.createAdminButton:hover {
+  background-color: #5f82f5;
+}
