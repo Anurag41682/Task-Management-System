@@ -1,7 +1,7 @@
-function LoginPage() {
+function UserLogin() {
   return (
     <div className="loginPage">
-      <h1>Login</h1>
+      <h1>Login as User</h1>
       <form className="loginForm">
         <div className="loginInput">
           <label>Username:</label>
@@ -16,4 +16,4 @@ function LoginPage() {
     </div>
   );
 }
-export default LoginPage;
+export default UserLogin;

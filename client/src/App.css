@@ -27,6 +27,7 @@
 .loginInput {
   display: flex;
   justify-content: space-between;
+  margin: 10px;
 }
 .loginButton {
   margin: 5px;

@@ -19,13 +19,13 @@ function AuthPage() {
   if (isAdminCreated === null) {
     return <div>Loading...</div>;
   }
-  console.log(isAdminCreated);
+
   return isAdminCreated ? (
     <div className="authPage">
-      <Link className="authButton" to="/login">
+      <Link className="authButton" to="/adminLogin">
         Login as Admin
       </Link>
-      <Link className="authButton" to="/login">
+      <Link className="authButton" to="/userLogin">
         Login as User
       </Link>
     </div>
