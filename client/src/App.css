@@ -58,3 +58,8 @@
 .createAdminButton:hover {
   background-color: #5f82f5;
 }
+.error {
+  margin: 10px;
+  color: rgb(138, 0, 0);
+  font-weight: 800;
+}
