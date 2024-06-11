@@ -34,3 +34,7 @@ export const deleteTask = (id) => {
 export const editTask = (id, formData) => {
   return api.patch(`/editTask/${id}`, formData);
 };
+
+export const fetchUser = () => {
+  return api.get("/getUser");
+};

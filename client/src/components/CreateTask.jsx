@@ -1,7 +1,8 @@
 import Modal from "react-modal";
 import { useState } from "react";
 import * as api from "../api/index";
-function CreateTask({ setTasks, tasks, closeModal2, modal2IsOpen }) {
+function CreateTask({ allUser, setTasks, tasks, closeModal2, modal2IsOpen }) {
+  console.log(allUser);
   const initialState = {
     title: "",
     dueDate: "",
@@ -81,13 +82,18 @@ function CreateTask({ setTasks, tasks, closeModal2, modal2IsOpen }) {
             </select>
           </div>
           <div className="createTaskInput">
-            <label>Assigned To :</label>
+            <label>Assign To:</label>
             <select
               onChange={handleChange}
               value={formData.assignedTo}
               name="assignedTo"
             >
               <option value="None">None</option>
+              {allUser?.map((user) => (
+                <option key={user} value={user}>
+                  {user}
+                </option>
+              ))}
             </select>
           </div>
         </form>

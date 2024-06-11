@@ -4,6 +4,7 @@ import CreateTask from "./CreateTask";
 import TaskList from "./TaskList";
 import Modal from "react-modal";
 import * as api from "../api/index";
+import { all } from "axios";
 
 Modal.setAppElement("#root"); // Set the root element for accessibility
 
@@ -23,12 +24,25 @@ function AdminDashboard() {
     setModal2IsOpen(false);
   };
   const [tasks, setTasks] = useState([]);
+  const [allUser, setAllUsers] = useState([]);
   useEffect(() => {
-    api.fetchTask().then((recieved) => {
-      setTasks(recieved.data.tasks);
-    });
+    api
+      .fetchTask()
+      .then((recieved) => {
+        setTasks(recieved.data.tasks);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    api
+      .fetchUser()
+      .then((recieved) => {
+        setAllUsers(recieved.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
-
   return (
     <div>
       <div className="firstAndSecond">
@@ -39,14 +53,20 @@ function AdminDashboard() {
           Create Task
         </div>
       </div>
-      <AddUser closeModal1={closeModal1} modal1IsOpen={modal1IsOpen} />
+      <AddUser
+        allUser={allUser}
+        setAllUsers={setAllUsers}
+        closeModal1={closeModal1}
+        modal1IsOpen={modal1IsOpen}
+      />
       <CreateTask
+        allUser={allUser}
         setTasks={setTasks}
         tasks={tasks}
         closeModal2={closeModal2}
         modal2IsOpen={modal2IsOpen}
       />
-      <TaskList setTasks={setTasks} tasks={tasks} />
+      <TaskList allUser={allUser} setTasks={setTasks} tasks={tasks} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import { useEffect, useState } from "react";
 import * as api from "../api/index";
-function Edit({ modal2IsOpen, closeModal2, task, setTasks, tasks }) {
+function Edit({ allUser, modal2IsOpen, closeModal2, task, setTasks, tasks }) {
   const [errorMessage, setErrorMessage] = useState(null);
   const initialState = {
     title: "",
@@ -94,13 +94,18 @@ function Edit({ modal2IsOpen, closeModal2, task, setTasks, tasks }) {
             </select>
           </div>
           <div className="createTaskInput">
-            <label>Assigned To :</label>
+            <label>Assign To :</label>
             <select
               onChange={handleChange}
               value={formData.assignedTo}
               name="assignedTo"
             >
               <option value="None">None</option>
+              {allUser?.map((user) => (
+                <option key={user} value={user}>
+                  {user}
+                </option>
+              ))}
             </select>
           </div>
         </form>

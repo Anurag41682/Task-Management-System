@@ -3,11 +3,10 @@ import * as api from "../api/index";
 import { useState } from "react";
 import Detail from "./Detail";
 import Edit from "./Edit";
-function TaskList({ setTasks, tasks }) {
+function TaskList({ allUser, setTasks, tasks }) {
   if (!tasks || tasks.length === 0) {
     return <div className="noTaskHead">No tasks available</div>;
   }
-
   const [modal1IsOpen, setModal1IsOpen] = useState(false);
   const [modal2IsOpen, setModal2IsOpen] = useState(false);
   const openModal1 = () => {
@@ -90,6 +89,7 @@ function TaskList({ setTasks, tasks }) {
               task={tsk}
             />
             <Edit
+              allUser={allUser}
               modal2IsOpen={modal2IsOpen}
               closeModal2={closeModal2}
               task={tsk}

@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import { useState } from "react";
 import * as api from "../api/index";
-function AddUser({ closeModal1, modal1IsOpen }) {
+function AddUser({ allUser, setAllUsers, closeModal1, modal1IsOpen }) {
   const initialUserState = {
     username: "",
     password: "",
@@ -15,9 +15,10 @@ function AddUser({ closeModal1, modal1IsOpen }) {
   const handleAddUserSubmit = () => {
     api
       .addUser(addUserFormData)
-      .then((received) => {
+      .then(() => {
         closeModal1();
         setAddUserFormData(initialUserState);
+        setAllUsers([...allUser, addUserFormData.username]);
         setErrorMessage(null);
       })
       .catch((err) => {
