@@ -6,8 +6,8 @@ function CreateTask({ setTasks, tasks, closeModal2, modal2IsOpen }) {
     title: "",
     dueDate: "",
     description: "",
-    priority: "medium",
-    assignedTo: "none",
+    priority: "Medium",
+    assignedTo: "None",
   };
   const [errorMessage, setErrorMessage] = useState(null);
   const [formData, setFormData] = useState(initialState);
@@ -82,7 +82,7 @@ function CreateTask({ setTasks, tasks, closeModal2, modal2IsOpen }) {
               value={formData.assignedTo}
               name="assignedTo"
             >
-              <option value="none">none</option>
+              <option value="None">None</option>
             </select>
           </div>
         </form>
