@@ -19,6 +19,7 @@ function CreateTask({ setTasks, tasks, closeModal2, modal2IsOpen }) {
       .addTask(formData)
       .then((recieved) => {
         setTasks([...tasks, recieved.data.task]);
+        setErrorMessage(null);
         closeModal2();
       })
       .catch((err) => {
@@ -68,9 +69,9 @@ function CreateTask({ setTasks, tasks, closeModal2, modal2IsOpen }) {
               name="priority"
               id="selection"
             >
-              <option value="high">High</option>
-              <option value="medium">Medium</option>
-              <option value="low">Low</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
             </select>
           </div>
           <div className="createTaskInput">
