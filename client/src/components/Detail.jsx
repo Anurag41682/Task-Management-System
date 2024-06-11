@@ -5,6 +5,11 @@ function Detail({ modal1IsOpen, closeModal1, task }) {
       isOpen={modal1IsOpen}
       onRequestClose={closeModal1}
       contentLabel="Modal 1"
+      style={{
+        content: {
+          backgroundColor: "#cdc7ff",
+        },
+      }}
     >
       <div className="descriptionPopup">
         <h2>Detail: </h2>

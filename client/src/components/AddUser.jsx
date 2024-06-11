@@ -29,6 +29,11 @@ function AddUser({ closeModal1, modal1IsOpen }) {
       isOpen={modal1IsOpen}
       onRequestClose={closeModal1}
       contentLabel="Modal 1"
+      style={{
+        content: {
+          backgroundColor: "#cdc7ff",
+        },
+      }}
     >
       <div className="addUser">
         <h2>Add User</h2>

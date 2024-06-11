@@ -40,12 +40,21 @@ function TaskList({ setTasks, tasks }) {
       })
       .catch((err) => {});
   };
+  const COLORS = {
+    low: "#9fff80",
+    medium: "#ffa366",
+    high: "#ff8080",
+  };
   return (
     <div className="taskList">
       <h1>Task List</h1>
       <ul className="unorderedList">
         {tasks.map((task) => (
-          <li className="singleList" key={task._id}>
+          <li
+            style={{ backgroundColor: COLORS[task.priority.toLowerCase()] }}
+            className="singleList"
+            key={task._id}
+          >
             <h3>{task.title}</h3>
             <p>Due Date: {new Date(task.dueDate).toLocaleDateString()}</p>
             <p>Priority: {task.priority}</p>

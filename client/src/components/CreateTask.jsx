@@ -32,6 +32,11 @@ function CreateTask({ setTasks, tasks, closeModal2, modal2IsOpen }) {
       isOpen={modal2IsOpen}
       onRequestClose={closeModal2}
       contentLabel="Modal 2"
+      style={{
+        content: {
+          backgroundColor: "#cdc7ff",
+        },
+      }}
     >
       <div className="createTask">
         <h2>Create Task</h2>

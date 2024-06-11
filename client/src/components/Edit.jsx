@@ -45,6 +45,11 @@ function Edit({ modal2IsOpen, closeModal2, task, setTasks, tasks }) {
       isOpen={modal2IsOpen}
       onRequestClose={closeModal2}
       contentLabel="Modal 2"
+      style={{
+        content: {
+          backgroundColor: "#cdc7ff",
+        },
+      }}
     >
       <div className="createTask">
         <h2>Edit Task</h2>
