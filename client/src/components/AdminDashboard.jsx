@@ -5,6 +5,7 @@ import TaskList from "./TaskList";
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 import * as api from "../api/index";
+import decodeFn from "../utils/decodeFn";
 
 Modal.setAppElement("#root"); // Set the root element for accessibility
 
@@ -24,8 +25,15 @@ function AdminDashboard() {
   const closeModal2 = () => {
     setModal2IsOpen(false);
   };
+  const jwtToken = localStorage.getItem("jwtToken");
+  const [userName, setUserName] = useState(null);
+  useEffect(() => {
+    const decodedToken = decodeFn(jwtToken);
+    setUserName(decodedToken.username);
+  }, []);
   const [tasks, setTasks] = useState([]);
   const [allUser, setAllUsers] = useState([]);
+
   useEffect(() => {
     api
       .fetchTask()
@@ -51,6 +59,7 @@ function AdminDashboard() {
   return (
     <div>
       <div className="firstAndSecond">
+        <h2>{userName}</h2>
         <div onClick={openModal1} className="buttonSmall">
           Add User
         </div>
