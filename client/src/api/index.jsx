@@ -22,3 +22,7 @@ export const addUser = (formData) => {
 export const addTask = (formData) => {
   return api.post("/addTask", formData);
 };
+
+export const fetchTask = () => {
+  return api.get("/fetchTask");
+};

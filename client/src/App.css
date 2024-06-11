@@ -127,3 +127,21 @@
   align-items: center;
   padding: 2vh;
 }
+.taskList {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.unorderedList {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+.singleList {
+  border: 2px #11182e solid;
+  background-color: #aa91ee;
+  padding: 5vh;
+  margin: 5px;
+}

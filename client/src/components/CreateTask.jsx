@@ -1,14 +1,15 @@
 import Modal from "react-modal";
 import { useState } from "react";
 import * as api from "../api/index";
-function CreateTask({ closeModal2, modal2IsOpen }) {
+function CreateTask({ setTasks, tasks, closeModal2, modal2IsOpen }) {
   const initialState = {
     title: "",
     dueDate: "",
     description: "",
-    priority: "",
+    priority: "medium",
     assignedTo: "none",
   };
+  const [errorMessage, setErrorMessage] = useState(null);
   const [formData, setFormData] = useState(initialState);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,8 +17,13 @@ function CreateTask({ closeModal2, modal2IsOpen }) {
   const handleSubmit = () => {
     api
       .addTask(formData)
-      .then(() => {})
-      .catch(() => {});
+      .then((recieved) => {
+        setTasks([...tasks, recieved.data.task]);
+        closeModal2();
+      })
+      .catch((err) => {
+        setErrorMessage("Fill Form Fully!");
+      });
   };
   return (
     <Modal
@@ -81,6 +87,7 @@ function CreateTask({ closeModal2, modal2IsOpen }) {
         <div className="buttonSmall" onClick={handleSubmit}>
           Submit
         </div>
+        {errorMessage && <div className="error">{errorMessage}</div>}
       </div>
     </Modal>
   );
