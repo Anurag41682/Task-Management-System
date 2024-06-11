@@ -7,6 +7,7 @@ function Detail({ modal1IsOpen, closeModal1, task }) {
       contentLabel="Modal 1"
     >
       <div className="descriptionPopup">
+        <h2>Detail: </h2>
         <p>Title: {task.title}</p>
         <p>Priority: {task.priority}</p>
         <p>Due Date: {new Date(task.dueDate).toLocaleDateString()}</p>

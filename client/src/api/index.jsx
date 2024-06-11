@@ -30,3 +30,7 @@ export const fetchTask = () => {
 export const deleteTask = (id) => {
   return api.delete(`/deleteTask/${id}`);
 };
+
+export const editTask = (id, formData) => {
+  return api.patch(`/editTask/${id}`, formData);
+};

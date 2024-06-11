@@ -2,6 +2,7 @@ import React from "react";
 import * as api from "../api/index";
 import { useState } from "react";
 import Detail from "./Detail";
+import Edit from "./Edit";
 function TaskList({ setTasks, tasks }) {
   if (!tasks || tasks.length === 0) {
     return <div className="noTaskHead">No tasks available</div>;
@@ -26,6 +27,10 @@ function TaskList({ setTasks, tasks }) {
     setTsk(task);
     openModal1();
   };
+  const handleEditClick = (task) => {
+    setTsk(task);
+    openModal2();
+  };
   const handleDelete = (id) => {
     api
       .deleteTask(id)
@@ -42,10 +47,8 @@ function TaskList({ setTasks, tasks }) {
         {tasks.map((task) => (
           <li className="singleList" key={task._id}>
             <h3>{task.title}</h3>
-            {/* <p>Description: {task.description}</p> */}
             <p>Due Date: {new Date(task.dueDate).toLocaleDateString()}</p>
             <p>Priority: {task.priority}</p>
-            {/* <p>Assigned To: {task.assignedTo}</p> */}
             <div className="deleteEdit">
               <div
                 onClick={() => {
@@ -63,12 +66,26 @@ function TaskList({ setTasks, tasks }) {
               >
                 Delete
               </div>
-              <div className="Btn">Edit</div>
+              <div
+                className="Btn"
+                onClick={() => {
+                  handleEditClick(task);
+                }}
+              >
+                Edit
+              </div>
             </div>
             <Detail
               modal1IsOpen={modal1IsOpen}
               closeModal1={closeModal1}
               task={tsk}
+            />
+            <Edit
+              modal2IsOpen={modal2IsOpen}
+              closeModal2={closeModal2}
+              task={tsk}
+              setTasks={setTasks}
+              tasks={tasks}
             />
           </li>
         ))}
