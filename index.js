@@ -7,6 +7,7 @@ const isAdminCreated = require("./router/isAdminCreated.js");
 const adminLogin = require("./router/adminLogin.js");
 const addTask = require("./router/addTask.js");
 const fetchTask = require("./router/fetchTask.js");
+const deleteTask = require("./router/deleteTask.js");
 const app = express();
 
 //global middlewares
@@ -20,6 +21,7 @@ app.use("/", isAdminCreated);
 app.use("/", adminLogin);
 app.use("/", addTask);
 app.use("/", fetchTask);
+app.use("/", deleteTask);
 
 const PORT = 3001;
 const mongoURL = "mongodb://localhost:27017/TaskManager";

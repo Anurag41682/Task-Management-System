@@ -96,6 +96,7 @@
   cursor: pointer;
 }
 .firstAndSecond {
+  margin-top: 3vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -128,7 +129,7 @@
   padding: 2vh;
 }
 .taskList {
-  margin-top: 10vh;
+  margin-top: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -138,10 +139,25 @@
   display: flex;
   list-style-type: none;
   flex-wrap: wrap;
+  gap: 10px;
 }
 .singleList {
   border: 2px #11182e solid;
   background-color: #aa91ee;
   padding: 5vh;
   margin: 5px;
+}
+.deleteEdit {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.Btn {
+  border: 1px #11182e solid;
+  border-radius: 3px;
+  padding: 0.5rem;
+}
+.Btn:hover {
+  background-color: #5f82f5;
+  cursor: pointer;
 }

@@ -19,6 +19,7 @@ function CreateTask({ setTasks, tasks, closeModal2, modal2IsOpen }) {
       .addTask(formData)
       .then((recieved) => {
         setTasks([...tasks, recieved.data.task]);
+        setFormData(initialState);
         setErrorMessage(null);
         closeModal2();
       })

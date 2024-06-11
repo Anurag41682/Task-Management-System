@@ -26,3 +26,7 @@ export const addTask = (formData) => {
 export const fetchTask = () => {
   return api.get("/fetchTask");
 };
+
+export const deleteTask = (id) => {
+  return api.delete(`/deleteTask/${id}`);
+};

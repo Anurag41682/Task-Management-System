@@ -25,7 +25,6 @@ function AdminDashboard() {
   const [tasks, setTasks] = useState([]);
   useEffect(() => {
     api.fetchTask().then((recieved) => {
-      console.log(recieved);
       setTasks(recieved.data.tasks);
     });
   }, []);
@@ -47,7 +46,7 @@ function AdminDashboard() {
         closeModal2={closeModal2}
         modal2IsOpen={modal2IsOpen}
       />
-      <TaskList tasks={tasks} />
+      <TaskList setTasks={setTasks} tasks={tasks} />
     </div>
   );
 }
