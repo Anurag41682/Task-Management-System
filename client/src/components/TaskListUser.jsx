@@ -50,7 +50,7 @@ function TaskListUser({ setTasks, tasks }) {
           >
             <h3>{task.title}</h3>
             <p>Due Date: {new Date(task.dueDate).toLocaleDateString()}</p>
-            <p>Priority: {task.priority}</p>
+            <p>Status: {task.status}</p>
             <div className="deleteEdit">
               <div
                 onClick={() => {
