@@ -3,12 +3,13 @@ import AddUser from "./AddUser";
 import CreateTask from "./CreateTask";
 import TaskList from "./TaskList";
 import Modal from "react-modal";
+import { useNavigate } from "react-router-dom";
 import * as api from "../api/index";
-import { all } from "axios";
 
 Modal.setAppElement("#root"); // Set the root element for accessibility
 
 function AdminDashboard() {
+  const navigate = useNavigate();
   const [modal1IsOpen, setModal1IsOpen] = useState(false);
   const [modal2IsOpen, setModal2IsOpen] = useState(false);
   const openModal1 = () => {
@@ -43,6 +44,10 @@ function AdminDashboard() {
         console.log(err);
       });
   }, []);
+  const handleLogOut = () => {
+    localStorage.removeItem("jwtToken");
+    navigate("/");
+  };
   return (
     <div>
       <div className="firstAndSecond">
@@ -51,6 +56,9 @@ function AdminDashboard() {
         </div>
         <div onClick={openModal2} className="buttonSmall">
           Create Task
+        </div>
+        <div className="buttonSmall" onClick={handleLogOut}>
+          LogOut
         </div>
       </div>
       <AddUser

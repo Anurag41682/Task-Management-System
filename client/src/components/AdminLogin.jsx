@@ -17,7 +17,7 @@ function AdminLogin() {
     api
       .adminLogin(formData)
       .then((recieved) => {
-        console.log(recieved);
+        // console.log(recieved);
         const token = recieved.data.token;
         localStorage.setItem("jwtToken", token);
         navigate("/adminDashboard");

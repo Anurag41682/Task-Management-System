@@ -38,3 +38,6 @@ export const editTask = (id, formData) => {
 export const fetchUser = () => {
   return api.get("/getUser");
 };
+export const userLogin = (formData) => {
+  return api.post("/userLogin", formData);
+};

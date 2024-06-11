@@ -2,14 +2,15 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-const auth = require("./router/auth.js");
-const isAdminCreated = require("./router/isAdminCreated.js");
-const adminLogin = require("./router/adminLogin.js");
-const addTask = require("./router/addTask.js");
-const fetchTask = require("./router/fetchTask.js");
-const deleteTask = require("./router/deleteTask.js");
-const editTask = require("./router/editTask.js");
-const fetchUser = require("./router/fetchUsers.js");
+const auth = require("./routes/auth.js");
+const isAdminCreated = require("./routes/isAdminCreated.js");
+const adminLogin = require("./routes/adminLogin.js");
+const addTask = require("./routes/addTask.js");
+const fetchTask = require("./routes/fetchTask.js");
+const deleteTask = require("./routes/deleteTask.js");
+const editTask = require("./routes/editTask.js");
+const fetchUser = require("./routes/fetchUsers.js");
+const userLogin = require("./routes/userLogin.js");
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use("/", fetchTask);
 app.use("/", deleteTask);
 app.use("/", editTask);
 app.use("/", fetchUser);
+app.use("/", userLogin);
 
 const PORT = 3001;
 const mongoURL = "mongodb://localhost:27017/TaskManager";
