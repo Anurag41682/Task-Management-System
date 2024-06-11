@@ -5,6 +5,7 @@ async function addTask(req, res) {
       title: req.body.title,
       dueDate: req.body.dueDate,
       description: req.body.description,
+      status: req.body.status,
       priority: req.body.priority,
       assignedTo: req.body.assignedTo,
     });

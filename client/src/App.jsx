@@ -10,7 +10,7 @@ import { useState } from "react";
 import UserDashboard from "./components/UserDashboard";
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
-  const [userName, setUserName] = useState(null);
+
   return (
     <>
       <Router>

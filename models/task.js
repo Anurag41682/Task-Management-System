@@ -21,6 +21,10 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    required: true,
+  },
 });
 
 const TaskSchema = mongoose.model("taskSchema", taskSchema);

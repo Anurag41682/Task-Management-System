@@ -13,7 +13,6 @@ function AdminLogin() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleClick = () => {
-    console.log(formData);
     api
       .adminLogin(formData)
       .then((recieved) => {

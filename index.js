@@ -11,6 +11,8 @@ const deleteTask = require("./routes/deleteTask.js");
 const editTask = require("./routes/editTask.js");
 const fetchUser = require("./routes/fetchUsers.js");
 const userLogin = require("./routes/userLogin.js");
+const fetchUserTask = require("./routes/fetchUserTask.js");
+const toggleStatus = require("./routes/toggleStatus.js");
 
 const app = express();
 
@@ -29,6 +31,8 @@ app.use("/", deleteTask);
 app.use("/", editTask);
 app.use("/", fetchUser);
 app.use("/", userLogin);
+app.use("/", fetchUserTask);
+app.use("/", toggleStatus);
 
 const PORT = 3001;
 const mongoURL = "mongodb://localhost:27017/TaskManager";

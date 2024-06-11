@@ -2,11 +2,11 @@ import Modal from "react-modal";
 import { useState } from "react";
 import * as api from "../api/index";
 function CreateTask({ allUser, setTasks, tasks, closeModal2, modal2IsOpen }) {
-  console.log(allUser);
   const initialState = {
     title: "",
     dueDate: "",
     description: "",
+    status: "Pending",
     priority: "Medium",
     assignedTo: "None",
   };
@@ -67,6 +67,17 @@ function CreateTask({ allUser, setTasks, tasks, closeModal2, modal2IsOpen }) {
               name="description"
               id=""
             ></textarea>
+          </div>
+          <div className="createTaskInput">
+            <label>Status :</label>
+            <select
+              onChange={handleChange}
+              value={formData.status}
+              name="status"
+            >
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+            </select>
           </div>
           <div className="createTaskInput">
             <label>Priority :</label>

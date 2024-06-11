@@ -17,6 +17,7 @@ function Detail({ modal1IsOpen, closeModal1, task }) {
         <p>Priority: {task.priority}</p>
         <p>Due Date: {new Date(task.dueDate).toLocaleDateString()}</p>
         <p>Description: {task.description}</p>
+        <p>Status: {task.status}</p>
         <p>Assigned to: {task.assignedTo}</p>
         <div className="buttonSmall" onClick={closeModal1}>
           OK

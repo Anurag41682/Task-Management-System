@@ -38,6 +38,15 @@ export const editTask = (id, formData) => {
 export const fetchUser = () => {
   return api.get("/getUser");
 };
+
 export const userLogin = (formData) => {
   return api.post("/userLogin", formData);
+};
+
+export const fetchUserTask = (username) => {
+  return api.get(`/fetchUserTask/${username}`);
+};
+
+export const toggleStatus = (id) => {
+  return api.patch(`/toggleStatus/${id}`);
 };
