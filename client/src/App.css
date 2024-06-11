@@ -61,6 +61,7 @@
 }
 .createAdminButton:hover {
   background-color: #5f82f5;
+  cursor: pointer;
 }
 .error {
   margin: 10px;

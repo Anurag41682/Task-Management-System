@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const auth = require("./router/auth.js");
 const isAdminCreated = require("./router/isAdminCreated.js");
 const adminLogin = require("./router/adminLogin.js");
+const addTask = require("./router/addTask.js");
 const app = express();
 
 //global middlewares
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", auth);
 app.use("/", isAdminCreated);
 app.use("/", adminLogin);
+app.use("/", addTask);
 
 const PORT = 3001;
 const mongoURL = "mongodb://localhost:27017/TaskManager";

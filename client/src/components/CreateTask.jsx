@@ -1,6 +1,24 @@
 import Modal from "react-modal";
 import { useState } from "react";
+import * as api from "../api/index";
 function CreateTask({ closeModal2, modal2IsOpen }) {
+  const initialState = {
+    title: "",
+    dueDate: "",
+    description: "",
+    priority: "",
+    assignedTo: "none",
+  };
+  const [formData, setFormData] = useState(initialState);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = () => {
+    api
+      .addTask(formData)
+      .then(() => {})
+      .catch(() => {});
+  };
   return (
     <Modal
       isOpen={modal2IsOpen}
@@ -12,19 +30,38 @@ function CreateTask({ closeModal2, modal2IsOpen }) {
         <form>
           <div className="createTaskInput">
             <label>Title :</label>
-            <input name="title"></input>
+            <input
+              onChange={handleChange}
+              value={formData.title}
+              name="title"
+            ></input>
           </div>
           <div className="createTaskInput">
             <label>Due Date :</label>
-            <input type="date"></input>
+            <input
+              onChange={handleChange}
+              value={formData.dueDate}
+              name="dueDate"
+              type="date"
+            ></input>
           </div>
           <div className="createTaskInput">
             <label>Description :</label>
-            <textarea name="description" id=""></textarea>
+            <textarea
+              onChange={handleChange}
+              value={formData.description}
+              name="description"
+              id=""
+            ></textarea>
           </div>
           <div className="createTaskInput">
             <label>Priority :</label>
-            <select name="selection" id="selection">
+            <select
+              onChange={handleChange}
+              value={formData.priority}
+              name="priority"
+              id="selection"
+            >
               <option value="high">High</option>
               <option value="medium">Medium</option>
               <option value="low">Low</option>
@@ -32,12 +69,16 @@ function CreateTask({ closeModal2, modal2IsOpen }) {
           </div>
           <div className="createTaskInput">
             <label>Assigned To :</label>
-            <select>
+            <select
+              onChange={handleChange}
+              value={formData.assignedTo}
+              name="assignedTo"
+            >
               <option value="none">none</option>
             </select>
           </div>
         </form>
-        <div className="buttonSmall" onClick={closeModal2}>
+        <div className="buttonSmall" onClick={handleSubmit}>
           Submit
         </div>
       </div>

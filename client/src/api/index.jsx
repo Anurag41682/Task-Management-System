@@ -19,3 +19,6 @@ export const adminLogin = (formData) => {
 export const addUser = (formData) => {
   return api.post("/addUser", formData);
 };
+export const addTask = (formData) => {
+  return api.post("/addTask", formData);
+};
