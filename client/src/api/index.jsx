@@ -15,3 +15,7 @@ export const isAdminCreated = () => {
 export const adminLogin = (formData) => {
   return api.post("/adminLogin", formData);
 };
+
+export const addUser = (formData) => {
+  return api.post("/addUser", formData);
+};

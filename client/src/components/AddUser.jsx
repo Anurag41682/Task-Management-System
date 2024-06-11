@@ -1,17 +1,28 @@
 import Modal from "react-modal";
 import { useState } from "react";
+import * as api from "../api/index";
 function AddUser({ closeModal1, modal1IsOpen }) {
   const initialUserState = {
     username: "",
     password: "",
     confirmPassword: "",
   };
+  const [errorMessage, setErrorMessage] = useState(null);
   const [addUserFormData, setAddUserFormData] = useState(initialUserState);
   const handleAddUserChange = (e) => {
     setAddUserFormData({ ...addUserFormData, [e.target.name]: e.target.value });
   };
   const handleAddUserSubmit = () => {
-    console.log(addUserFormData);
+    api
+      .addUser(addUserFormData)
+      .then((received) => {
+        closeModal1();
+        setAddUserFormData(initialUserState);
+        setErrorMessage(null);
+      })
+      .catch((err) => {
+        setErrorMessage(err.response.data.message);
+      });
   };
   return (
     <Modal
@@ -55,6 +66,7 @@ function AddUser({ closeModal1, modal1IsOpen }) {
             Submit
           </div>
         </form>
+        {errorMessage && <div className="error">{errorMessage}</div>}
       </div>
     </Modal>
   );
