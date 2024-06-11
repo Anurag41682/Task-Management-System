@@ -7,6 +7,7 @@ function Edit({ allUser, modal2IsOpen, closeModal2, task, setTasks, tasks }) {
     title: "",
     dueDate: "",
     description: "",
+    status: "",
     priority: "",
     assignedTo: "",
   };
@@ -16,6 +17,7 @@ function Edit({ allUser, modal2IsOpen, closeModal2, task, setTasks, tasks }) {
       title: task.title,
       dueDate: task.dueDate?.split("T")[0],
       description: task.description,
+      status: task.status,
       priority: task.priority,
       assignedTo: task.assignedTo,
     });
@@ -79,6 +81,17 @@ function Edit({ allUser, modal2IsOpen, closeModal2, task, setTasks, tasks }) {
               name="description"
               id=""
             ></textarea>
+          </div>
+          <div className="createTaskInput">
+            <label>Status :</label>
+            <select
+              onChange={handleChange}
+              value={formData.status}
+              name="status"
+            >
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+            </select>
           </div>
           <div className="createTaskInput">
             <label>Priority :</label>
