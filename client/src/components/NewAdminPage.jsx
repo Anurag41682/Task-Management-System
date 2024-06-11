@@ -14,7 +14,6 @@ function NewAdminPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleClick = async () => {
-    console.log(formData);
     try {
       const recieved = await api.createAdmin(formData);
       const token = recieved.data.token;

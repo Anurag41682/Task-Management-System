@@ -14,6 +14,7 @@
 }
 .authButton:hover {
   background-color: #5f82f5;
+  cursor: pointer;
 }
 .loginPage {
   display: flex;
@@ -37,6 +38,7 @@
 }
 .loginButton:hover {
   background-color: #5f82f5;
+  cursor: pointer;
 }
 
 .adminPage {
@@ -54,6 +56,7 @@
   margin: 5px;
   padding: 10px;
   border: 2px darkblue solid;
+  border-radius: 4px;
   text-align: center;
 }
 .createAdminButton:hover {
@@ -63,4 +66,63 @@
   margin: 10px;
   color: rgb(138, 0, 0);
   font-weight: 800;
+}
+.adminDashboard {
+  display: flex;
+  justify-content: space-around;
+  margin: 5vh;
+}
+.button {
+  margin: 5px;
+  padding: 10px;
+  border: 2px darkblue solid;
+  border-radius: 4px;
+  text-align: center;
+}
+.button:hover {
+  background-color: #5f82f5;
+  cursor: pointer;
+}
+.buttonSmall {
+  margin: 5px;
+  padding: 5px;
+  border: 2px darkblue solid;
+  border-radius: 4px;
+  text-align: center;
+}
+.buttonSmall:hover {
+  background-color: #5f82f5;
+  cursor: pointer;
+}
+.firstAndSecond {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.addUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5vh;
+  justify-content: space-between;
+}
+.addUserInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh;
+  margin: 4vh;
+}
+.createTask {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5vh;
+}
+.createTaskInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh;
 }
