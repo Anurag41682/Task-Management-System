@@ -18,7 +18,6 @@ function NewAdminPage() {
       const recieved = await api.createAdmin(formData);
       const token = recieved.data.token;
       localStorage.setItem("jwtToken", token);
-      console.log("Success");
       navigate("/");
     } catch (err) {
       setErrorMessage(err.response.data.message);

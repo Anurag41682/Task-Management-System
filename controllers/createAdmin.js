@@ -33,7 +33,7 @@ async function createAdmin(req, res) {
         username: newAdmin.username,
         isAdmin: true,
       },
-      "secretKey",
+      process.env.SECRET_KEY,
       {
         expiresIn: "1h",
       }

@@ -5,7 +5,6 @@ async function adminLogin(req, res) {
   try {
     const { username, password } = req.body;
     const admin = await AdminSchema.findOne({ username });
-    console.log(admin);
     if (!admin) {
       return res.status(401).json({ error: "Invalid username or password" });
     }
@@ -13,9 +12,13 @@ async function adminLogin(req, res) {
     if (!isPasswordValid) {
       return res.status(401).json({ error: "Invalid username or password" });
     }
-    const token = jwt.sign({ username, isAdmin: true }, "secretKey", {
-      expiresIn: "1h",
-    });
+    const token = jwt.sign(
+      { username, isAdmin: true },
+      process.env.SECRET_KEY,
+      {
+        expiresIn: "1h",
+      }
+    );
     return res.json({ token });
   } catch (error) {
     console.error("Error logging in admin:", error);

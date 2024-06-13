@@ -16,6 +16,7 @@ const fetchUserTask = require("./routes/fetchUserTask.js");
 const toggleStatus = require("./routes/toggleStatus.js");
 
 const app = express();
+require("dotenv").config();
 
 //global middlewares
 app.use(cors());

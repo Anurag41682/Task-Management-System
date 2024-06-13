@@ -12,9 +12,13 @@ async function adminLogin(req, res) {
     if (!isPasswordValid) {
       return res.status(401).json({ error: "Invalid username or password" });
     }
-    const token = jwt.sign({ username, isAdmin: false }, "secretKey", {
-      expiresIn: "1h",
-    });
+    const token = jwt.sign(
+      { username, isAdmin: false },
+      process.env.SECRET_KEY,
+      {
+        expiresIn: "1h",
+      }
+    );
     return res.json({ token });
   } catch (error) {
     console.error("Error logging in user:", error);

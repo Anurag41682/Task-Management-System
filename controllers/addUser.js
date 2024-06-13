@@ -25,15 +25,14 @@ async function addUser(req, res) {
       username,
       password: hashedPassword,
     });
-
     // Save the user to the database
     await newUser.save();
     const token = jwt.sign(
       {
         username: newUser.username,
-        isAdmin: true,
+        isAdmin: false,
       },
-      "secretKey",
+      process.env.SECRET_KEY,
       {
         expiresIn: "1h",
       }
