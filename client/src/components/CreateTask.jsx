@@ -25,7 +25,7 @@ function CreateTask({ allUser, setTasks, tasks, closeModal2, modal2IsOpen }) {
         closeModal2();
       })
       .catch((err) => {
-        setErrorMessage("Fill Form Fully!");
+        setErrorMessage(err.response.data.error);
       });
   };
   return (

@@ -11,14 +11,12 @@ async function editTask(req, res) {
     });
 
     if (!updatedTask) {
-      return res.status(404).send({ message: "Task not found" });
+      return res.status(404).send({ error: "Task not found" });
     }
 
     return res.status(200).send(updatedTask);
   } catch (err) {
-    return res
-      .status(500)
-      .send({ message: "Error updating task", error: err.message });
+    return res.status(500).send({ error: "Form data not valid" });
   }
 }
 

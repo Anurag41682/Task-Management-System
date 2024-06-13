@@ -14,7 +14,7 @@ async function addTask(req, res) {
       .status(200)
       .json({ message: "Task successfully added", task: savedTask });
   } catch (err) {
-    return res.status(500).json({ message: "Error saving task", error: err });
+    return res.status(500).json({ error: "Form data not valid" });
   }
 }
 
