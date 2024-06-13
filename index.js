@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-const auth = require("./routes/auth.js");
+const createAdmin = require("./routes/createAdmin.js");
+const addUser = require("./routes/addUser.js");
 const isAdminCreated = require("./routes/isAdminCreated.js");
 const adminLogin = require("./routes/adminLogin.js");
 const addTask = require("./routes/addTask.js");
@@ -22,7 +23,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // specific middlewares
-app.use("/", auth);
+app.use("/", createAdmin);
+app.use("/", addUser);
 app.use("/", isAdminCreated);
 app.use("/", adminLogin);
 app.use("/", addTask);
